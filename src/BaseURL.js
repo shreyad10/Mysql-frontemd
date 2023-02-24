@@ -1,3 +1,3 @@
-const BaseURL = 'http://localhost:5000/'
+const BaseURL = 'https://vola-finance-backend.vercel.app/'
 
 export default BaseURL
