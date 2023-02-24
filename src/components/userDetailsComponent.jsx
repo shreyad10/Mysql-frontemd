@@ -12,7 +12,7 @@ export default function UserDetails() {
    const [info, setInfo] = useState("")
 
    useEffect(() => {
-      fetch(`${BaseURL}details`, {
+      fetch(`${BaseURL}details`, { mode: 'no-cors'},{
          method: "POST",
          crossDomain: true,
          headers: {
