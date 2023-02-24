@@ -16,7 +16,7 @@ export default function Login() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        fetch(`${BaseURL}login`,{ mode: 'no-cors'}, {
+        fetch(`${BaseURL}login`, {
             method: "POST",
             crossDomain: true,
             headers: {

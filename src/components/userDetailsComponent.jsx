@@ -3,7 +3,7 @@ import BaseURL from "../BaseURL";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { auth } from "../config/firebase";
+
 
 
 
@@ -12,7 +12,7 @@ export default function UserDetails() {
    const [info, setInfo] = useState("")
 
    useEffect(() => {
-      fetch(`${BaseURL}details`, { mode: 'no-cors'},{
+      fetch(`${BaseURL}details`,{
          method: "POST",
          crossDomain: true,
          headers: {

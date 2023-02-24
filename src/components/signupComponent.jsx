@@ -17,7 +17,7 @@ export default function SignUp() {
       e.preventDefault();
 
       // console.log(name, age, email, password, address);
-      fetch(`${BaseURL}register`, { mode: 'no-cors'}, {
+      fetch(`${BaseURL}register`, {
          method: "POST",
          crossDomain: true,
       
