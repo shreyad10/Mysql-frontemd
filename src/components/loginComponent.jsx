@@ -32,15 +32,15 @@ export default function Login() {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data, "userRegister");
                 if (data.status == "ok") {
                     window.localStorage.setItem("token", data.data);
                     toast.success("Login successful");
                     navigate('/details')
+                } else if (data.msg == "Incorrect credentials ") {
+                    toast.error("Invalid email or password")
                 } else {
                     toast.error("Not registered, please register!");
                     navigate('/signup')
-
                 }
             });
 
@@ -63,56 +63,57 @@ export default function Login() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <h3>Sign In</h3>
+            <div className="loginbox">
+                <form onSubmit={handleSubmit}>
+                    <h3>Sign In</h3>
 
-                <div className="mb-3">
-                    <label>Email address</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div className="mb-3">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-
-
-                <div className="mb-3">
-                    <div className="custom-control custom-checkbox">
+                    <div className="mb-3">
+                        <label>Email address</label>
                         <input
-                            type="checkbox"
-                            className="custom-control-input"
-                            id="customCheck1"
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter email"
+                            onChange={(e) => setEmail(e.target.value)}
                         />
-                        <label className="custom-control-label" htmlFor="customCheck1">
-                            Remember me
-                        </label>
                     </div>
-                </div>
 
-                <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
-                        Submit
-                    </button>
-                </div>
-                <p className="forgot-password text-right">
-                    Not registered?  <a href="/signup">Sign Up</a>
-                </p>
+                    <div className="mb-3">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Enter password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+
+
+                    <div className="mb-3">
+                        <div className="custom-control custom-checkbox">
+                            <input
+                                type="checkbox"
+                                className="custom-control-input"
+                                id="customCheck1"
+                            />
+                            <label className="custom-control-label" htmlFor="customCheck1">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="d-grid">
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                    <p className="forgot-password text-right">
+                        Not registered?  <a href="/signup">Sign Up</a>
+                    </p>
+
+                </form>
                 <button onClick={signInWithGoogle}>Sign In with google</button>
 
-            </form>
-            
-
+            </div>
         </>
 
     );
