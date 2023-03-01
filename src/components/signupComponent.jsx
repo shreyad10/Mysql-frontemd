@@ -19,6 +19,7 @@ export default function SignUp() {
       // console.log(name, age, email, password, address);
       fetch(`${BaseURL}register`, {
          method: "POST",
+         mode: "no-cors",
          crossDomain: true,
       
          headers: {
